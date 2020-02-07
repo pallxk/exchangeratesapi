@@ -7,6 +7,9 @@ info:
   description: Exchange rates API is a free service for current and historical foreign exchange rates published by the European Central Bank
   contact:
     url: https://exchangeratesapi.io/
+  license:
+    name: MIT
+    url: https://github.com/exchangeratesapi/exchangeratesapi/blob/master/LICENSE
 paths:
   /latest:
     get:
