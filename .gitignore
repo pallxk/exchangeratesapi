@@ -1,0 +1,9 @@
+# Downloaded
+*.zip
+
+# Generated
+*.yaml.json
+javascript-client/
+
+# Node.js package
+*.tgz

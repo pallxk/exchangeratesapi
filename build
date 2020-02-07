@@ -1,0 +1,7 @@
+#!/bin/sh
+
+set -eu
+
+cd "$(dirname "$0")/javascript-client"
+npm i
+npm run build

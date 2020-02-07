@@ -1,0 +1,33 @@
+#!/usr/bin/env bash
+
+set -euxo pipefail
+
+apiHost=https://api.openapi-generator.tech
+genType=client
+apiPath=/api/gen/${genType}s
+generator=javascript
+generatorOptions=generator-request-body.json
+spec=exchangeratesapi.io.yaml
+
+# YAML -> JSON
+if [[ $spec == *.yaml ]] || [[ $spec == *.yml ]]; then
+  yq . "$spec" > "$spec.json"
+  spec=$spec.json
+fi
+
+# Generate and download
+jq -s '.[0] * { spec: .[1] }' "$generatorOptions" "$spec" \
+  | curl -s \
+    -X POST \
+    -H 'Content-Type: application/json' \
+    -H 'Accept: application/json' \
+    -d @- \
+    "$apiHost$apiPath/$generator" \
+  | jq --raw-output '.link' \
+  | wget -i- -Ogenerated.zip
+
+# Clean up existing code
+rm -rf "$generator-$genType"
+
+# Extract the code
+unzip -o generated.zip
