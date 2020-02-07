@@ -25,7 +25,7 @@ paths:
           $ref: '#/components/responses/BadRequest'
   /{date}:
     get:
-      operationId: date
+      operationId: historical
       summary: Get historical rates for any day since 1999.
       parameters:
         - in: path
