@@ -42,5 +42,6 @@
   },
   "files": [
     "dist"
-  ]
+  ],
+  "repository": "pallxk/exchangeratesapi"
 }

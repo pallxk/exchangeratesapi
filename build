@@ -3,5 +3,11 @@
 set -eu
 
 cd "$(dirname "$0")/javascript-client"
+
+# Patch generated package
+mv package.json package-original.json
+jq -s '.[0] * .[1]' package-original.json ../package-patch.json > package.json
+rm package-original.json
+
 npm i
 npm run build
