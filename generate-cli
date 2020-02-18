@@ -1,0 +1,12 @@
+#!/usr/bin/env bash
+
+set -euxo pipefail
+
+cli="docker run -u $(id -u):$(id -g) --rm -v ${PWD}:/local openapi-generator-cli"
+genType=client
+generator=javascript
+generatorOptions=generator-options.json
+spec=exchangeratesapi.io.yaml
+
+rm -rf "$generator-$genType"
+$cli generate -g $generator -i "/local/$spec" -c "/local/$generatorOptions" -o "/local/$generator-$genType"

@@ -2,11 +2,13 @@
 
 set -euxo pipefail
 
+#apiHost=http://127.0.0.1:8080
 apiHost=https://api.openapi-generator.tech
+#apiHost=https://api-latest-master.openapi-generator.tech
 genType=client
 apiPath=/api/gen/${genType}s
 generator=javascript
-generatorOptions=generator-request-body.json
+generatorOptions=generator-options.json
 spec=exchangeratesapi.io.yaml
 
 # YAML -> JSON
@@ -16,8 +18,8 @@ if [[ $spec == *.yaml ]] || [[ $spec == *.yml ]]; then
 fi
 
 # Generate and download
-jq -s '.[0] * { spec: .[1] }' "$generatorOptions" "$spec" \
-  | curl -s \
+jq -s '{ options: .[0], spec: .[1] }' "$generatorOptions" "$spec" \
+  | curl -sf \
     -X POST \
     -H 'Content-Type: application/json' \
     -H 'Accept: application/json' \
