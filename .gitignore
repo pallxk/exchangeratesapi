@@ -4,5 +4,6 @@
 # Generated
 *.yaml.json
 
-# Node.js package
+# Node.js
+node_modules
 *.tgz
