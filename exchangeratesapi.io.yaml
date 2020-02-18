@@ -33,8 +33,7 @@ paths:
           description: Date in format YYYY-MM-DD
           required: true
           schema:
-            type: string
-            format: date
+            $ref: '#/components/schemas/CalendarDate'
         - $ref: '#/components/parameters/base'
         - $ref: '#/components/parameters/symbols'
       responses:
@@ -51,14 +50,12 @@ paths:
           name: start_at
           required: true
           schema:
-            type: string
-            format: date
+            $ref: '#/components/schemas/CalendarDate'
         - in: query
           name: end_at
           required: true
           schema:
-            type: string
-            format: date
+            $ref: '#/components/schemas/CalendarDate'
         - $ref: '#/components/parameters/base'
         - $ref: '#/components/parameters/symbols'
       responses:
@@ -83,9 +80,10 @@ components:
         type: string
         example: 'USD,GBP'
   schemas:
-    Date:
+    CalendarDate:
       type: string
       format: date
+      description: '%Y-%m-%d'
       example: '2010-01-12'
     Currency:
       type: string
@@ -107,7 +105,7 @@ components:
         base:
           $ref: '#/components/schemas/Currency'
         date:
-          $ref: '#/components/schemas/Date'
+          $ref: '#/components/schemas/CalendarDate'
       example: {"rates":{"CAD":1.4959,"HKD":11.2301,"LVL":0.7093,"PHP":66.106,"DKK":7.4405,"HUF":268.18,"CZK":26.258,"AUD":1.5668,"RON":4.1405,"SEK":10.2215,"IDR":13281.14,"INR":66.21,"BRL":2.5309,"RUB":42.6974,"LTL":3.4528,"JPY":132.41,"THB":47.839,"CHF":1.4743,"SGD":2.0133,"PLN":4.0838,"BGN":1.9558,"TRY":2.1084,"CNY":9.8863,"NOK":8.1825,"NZD":1.9573,"ZAR":10.8264,"USD":1.4481,"MXN":18.4995,"EEK":15.6466,"GBP":0.8972,"KRW":1627.4,"MYR":4.8424,"HRK":7.2753},"base":"EUR","date":"2010-01-12"}
     History:
       type: object
@@ -122,11 +120,11 @@ components:
           additionalProperties:
             $ref: '#/components/schemas/Rates'
         start_at:
-          $ref: '#/components/schemas/Date'
+          $ref: '#/components/schemas/CalendarDate'
         base:
           $ref: '#/components/schemas/Currency'
         end_at:
-          $ref: '#/components/schemas/Date'
+          $ref: '#/components/schemas/CalendarDate'
       example: {"rates":{"2018-01-03":{"CAD":1.5047,"HKD":9.3985,"SGD":1.5988,"PHP":59.988,"DKK":7.4442,"HUF":309.29,"CZK":25.545,"AUD":1.5339,"RON":4.6355,"SEK":9.825,"IDR":16176.95,"INR":76.3455,"BRL":3.9236,"RUB":69.0962,"HRK":7.441,"JPY":134.97,"THB":39.11,"CHF":1.1736,"PLN":4.1652,"BGN":1.9558,"TRY":4.5303,"CNY":7.8168,"NOK":9.744,"NZD":1.6942,"ZAR":14.8845,"USD":1.2023,"MXN":23.3835,"ILS":4.1588,"GBP":0.8864,"KRW":1281.39,"MYR":4.8272},"2018-01-02":{"CAD":1.5128,"HKD":9.4283,"SGD":1.6031,"PHP":60.132,"DKK":7.4437,"HUF":308.59,"CZK":25.494,"AUD":1.5413,"RON":4.6525,"SEK":9.8283,"IDR":16266.03,"INR":76.6005,"BRL":3.9504,"RUB":69.1176,"HRK":7.464,"JPY":135.35,"THB":39.115,"CHF":1.1718,"PLN":4.1633,"BGN":1.9558,"TRY":4.534,"CNY":7.8338,"NOK":9.7748,"NZD":1.6955,"ZAR":14.9,"USD":1.2065,"MXN":23.5534,"ILS":4.1693,"GBP":0.88953,"KRW":1281.59,"MYR":4.8495}},"start_at":"2018-01-01","base":"EUR","end_at":"2018-01-03"}
     Error:
       type: object
@@ -139,6 +137,7 @@ components:
           type: string
       example: {"error":"Base 'ABC' is not supported."}
       # example: {"error":"Symbols 'EUR' are invalid for date 2020-02-07."}
+      # example: {"error":"time data '20100112' does not match format '%Y-%m-%d'"}
       # example: {"error":"end_at parameter format","exception":"time data '1581074895' does not match format '%Y-%m-%d'"}
   responses:
     OneDaySuccess:
