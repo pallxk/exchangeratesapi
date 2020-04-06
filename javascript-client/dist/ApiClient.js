@@ -31,9 +31,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 * @alias module:ApiClient
 * @class
 */
-var ApiClient =
-/*#__PURE__*/
-function () {
+var ApiClient = /*#__PURE__*/function () {
   function ApiClient() {
     _classCallCheck(this, ApiClient);
 

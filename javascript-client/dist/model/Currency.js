@@ -22,9 +22,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 * @enum {}
 * @readonly
 */
-var Currency =
-/*#__PURE__*/
-function () {
+var Currency = /*#__PURE__*/function () {
   function Currency() {
     _classCallCheck(this, Currency);
 

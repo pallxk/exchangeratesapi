@@ -28,9 +28,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 * @module api/DefaultApi
 * @version 1.0.0
 */
-var DefaultApi =
-/*#__PURE__*/
-function () {
+var DefaultApi = /*#__PURE__*/function () {
   /**
   * Constructs a new DefaultApi. 
   * @alias module:api/DefaultApi

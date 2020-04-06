@@ -22,9 +22,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
  * @module model/HistoryRates
  * @version 1.0.0
  */
-var HistoryRates =
-/*#__PURE__*/
-function () {
+var HistoryRates = /*#__PURE__*/function () {
   /**
    * Constructs a new <code>HistoryRates</code>.
    * Date / Rates pair wrapped with base and date range information
