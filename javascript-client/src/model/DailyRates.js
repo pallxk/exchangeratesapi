@@ -17,7 +17,7 @@ import Currency from './Currency';
 /**
  * The DailyRates model module.
  * @module model/DailyRates
- * @version 1.0.0
+ * @version 1.0.1
  */
 class DailyRates {
     /**
