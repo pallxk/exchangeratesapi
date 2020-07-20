@@ -21,7 +21,7 @@ import HistoryRates from '../model/HistoryRates';
 /**
 * Default service.
 * @module api/DefaultApi
-* @version 1.0.1
+* @version 1.0.2
 */
 export default class DefaultApi {
 

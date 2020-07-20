@@ -20,7 +20,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 /**
  * The DailyRates model module.
  * @module model/DailyRates
- * @version 1.0.1
+ * @version 1.0.2
  */
 var DailyRates = /*#__PURE__*/function () {
   /**

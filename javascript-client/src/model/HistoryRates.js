@@ -17,7 +17,7 @@ import Currency from './Currency';
 /**
  * The HistoryRates model module.
  * @module model/HistoryRates
- * @version 1.0.1
+ * @version 1.0.2
  */
 class HistoryRates {
     /**

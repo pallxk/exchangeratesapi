@@ -20,7 +20,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 /**
  * The HistoryRates model module.
  * @module model/HistoryRates
- * @version 1.0.1
+ * @version 1.0.2
  */
 var HistoryRates = /*#__PURE__*/function () {
   /**

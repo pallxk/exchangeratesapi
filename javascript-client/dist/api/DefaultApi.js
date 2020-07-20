@@ -26,7 +26,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 /**
 * Default service.
 * @module api/DefaultApi
-* @version 1.0.1
+* @version 1.0.2
 */
 var DefaultApi = /*#__PURE__*/function () {
   /**
